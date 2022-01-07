@@ -11,40 +11,40 @@
     box-shadow: inset -10px 10px 50px rgba(0, 0, 0, 0.4), inset 5px -5px 50px rgba(0, 0, 0, 1),
         inset 50px -50px 200px rgba(0, 0, 0, 1), inset 0px -20px 20px rgba(60, 0, 60, 1),
         inset -1px 2px 20px 4px #ffffff7a, 0 0 50px #ffffffa1, 0 0 30px 0px #3900bf8c;
-        animation-name: rotating2;
+    animation-name: rotating2;
     animation-duration: 600s;
     animation-timing-function: ease;
     animation-iteration-count: infinite;
 }
 
 .ball__response {
+    
     position: absolute;
-    background: linear-gradient(45deg, rgba(20, 0, 20, 1) 0%, rgba(40, 0, 20, 1) 100%);
+    /*background: linear-gradient(45deg, rgba(20, 0, 20, 1) 0%, rgba(40, 0, 20, 1) 100%);
     width: 160px;
     height: 160px;
     border-radius: 100%;
     border: solid 4px rgba(20, 20, 20, 0.8);
+    border-radius: 100%;
     box-shadow: inset -10px 10px 50px rgba(0, 0, 0, 0.4), inset 5px -5px 50px rgba(0, 0, 0, 1),
         inset 50px -50px 200px rgba(0, 0, 0, 1), inset 0px -20px 20px rgba(60, 0, 60, 1),
         inset -1px 2px 20px 4px #ffffff7a, 0 0 50px #ffffffa1, 0 0 30px 0px #3900bf8c;
-   
-    
-
-
+    */
     animation-name: rotating;
     animation-duration: 30s;
     animation-timing-function: ease;
     animation-iteration-count: infinite;
-      
+    
+
 }
 
 @keyframes rotating{
-    0%{ top: 0%;left:50%;transform: rotate(60deg);}
+    0%{ top: 0%;left:50%;transform: rotate(-100deg);}
     25%{ top: 30%;left:100%;transform: rotate(180deg);}
     35%{ top: 45%;left:-25%;transform: rotate(260deg);}
     50%{ top: 100%;left:10%;transform: rotate(380deg);}
     75%{ top: 30%;left:-20%;transform: rotate(180deg);}
-    100%{ top: 0%;left:50%;transform: rotate(60deg);}
+    100%{ top: 0%;left:50%;transform: rotate(600deg);}
 }
 @keyframes rotating2{
     0%{ transform: rotate(15deg);}
@@ -52,54 +52,59 @@
     50%{ transform: rotate(-180deg);}
     100%{ transform: rotate(60deg);}
 }
-
-
-.ball__triangle {
-    -webkit-transform: translate(-50%, -50%) rotate(5deg);
-    transform: translate(-50%, -50%) rotate(5deg);
-    position: absolute;
-    left: 50%;
-    top: 60%;
-    border-left: 55px solid transparent;
-    border-right: 55px solid transparent;
-    opacity: 0;
+@keyframes rotating-reverse{
+    0%{ top: 10%;left:15%;transform: rotate(-100deg);}
+    25%{ top: 30%;left:25%;transform: rotate(80deg);}
+    35%{ top: 40%;left:45%;transform: rotate(20deg);}
+    50%{ top: 30%;left:50%;transform: rotate(80deg);}
+    75%{ top: 20%;left:40%;transform: rotate(10deg);}
+    100%{ top: 10%;left:15%;transform: rotate(60deg);}
 }
+
 
 .ball__answer {
-    background-image: url("../styles/sabio.png");
-    background-size: contain;
-    font-size: 1.2rem;
-    text-shadow: 1px 1px 2px black;
-    color: white;
-    text-align: center;
-    -webkit-transform: translate(-50%, -50%) rotate(5deg);
-    transform: translate(-50%, -50%) rotate(5deg);
-    position: absolute;
-    text-transform: uppercase;
     width: 150px;
     height: 160px;
+    background-image: url("../styles/sabio.png");
+    background-size: contain;
+    position: relative;
+    text-transform: uppercase;
     left: 51%;
     top: 52%;
-    opacity: 0;
     transition: ease-in all 0.2s;
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #3f04ca, 0 0 35px #3f04ca, 0 0 40px #3f04ca,
-        0 0 50px #3f04ca, 0 0 75px #3f04ca;
+    box-shadow: inset -10px 10px 50px rgba(255, 255, 255, 0.4), inset 5px -5px 50px rgba(0, 0, 0, 1),
+        inset 50px -50px 200px rgb(127, 51, 134), inset 0px -20px 20px rgb(29, 1, 29),
+        inset -1px 2px 20px 4px #fdfdfd7a, 0 0 50px #ffffffa1, 0 0 30px 0px #7900bf8c;
 }
-
-.ball .ball__answer {
+#answer_letters{
+    
+    text-align: center;
+    font-size: 1.6rem;
+    text-shadow: 1px 1px 2px rgb(173, 109, 199);
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #3f04ca, 0 0 35px #3f04ca, 0 0 40px #3f04ca,
+    0 0 50px #3f04ca, 0 0 75px #3f04ca;
+    color: rgb(250, 246, 250);
+    position: absolute;
+    text-transform: uppercase;
+    animation-name: rotating-reverse;
+    animation-duration: 10s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+}
+/*.ball .ball__answer {
     opacity: 1;
     -webkit-transform: translate(-50%, -50%) rotate(0deg);
     transform: translate(-50%, -50%) rotate(0deg);
     transition: ease-in all 0.2s;
-}
-
+}*/
+/*
 .ball .ball__triangle {
     border-top: 90px solid #3f04ca;
     -webkit-transform: translate(-50%, -50%) rotate(0deg);
     transform: translate(-50%, -50%) rotate(0deg);
     opacity: 1;
     transition: ease-in all 0.2s;
-}
+}*/
 
 .shake__ball {
     animation: shake 1s cubic-bezier(0.5, -0.75, 0.7, 2) both;
@@ -111,23 +116,23 @@
 @keyframes shake {
     10%,
     90% {
-        transform: translate3d(-5px, 0, 0);
+        transform: translate3d(-5px, 10px, 0);
     }
 
     20%,
     80% {
-        transform: translate3d(10px, 0, 0);
+        transform: translate3d(10px, 10px, 0);
     }
 
     30%,
     50%,
     70% {
-        transform: translate3d(-10px, 0, 0);
+        transform: translate3d(-10px, -10px, 0);
     }
 
     40%,
     60% {
-        transform: translate3d(5px, 0, 0);
+        transform: translate3d(5px, -10px, 0);
     }
 }
 

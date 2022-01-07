@@ -1,3 +1,8 @@
+//SELECTORS
+const ballSelector = document.querySelector('#ball');
+const inputSelector = document.querySelector("#input");
+const answerSelector = document.querySelector("#answer_letters");
+const buttonSelector =document.querySelector('#button');
 // API
 const API_ENDPOINT = 'https://yesno.wtf/api';
 
@@ -11,14 +16,47 @@ const API_ENDPOINT = 'https://yesno.wtf/api';
  * 5. Optional: add loading/error states
  *
  */
-const showAnswer =() =>{
-document.querySelector('#answer').innerHTML = '<p>No</p>'
+
+const disableButton = () =>{
+    buttonSelector.setAttribute('disabled', 'disabled');
+};
+
+const cleanResponse = () =>{
+    setTimeout(()=>{
+        answerSelector.innerHTML = '';
+        inputSelector.value = '';
+        buttonSelector.removeAttribute('disabled');
+    },3000);
+};
+
+const showAnswer = answer =>{
+    setTimeout(() =>{
+            answerSelector.innerHTML = `<p>${answer}</p>`;
+            ballSelector.classList.remove('shake__ball');
+            cleanResponse();
+    },1000);
+    
+};
+
+const fetchAnswer=()=>{
+    if (!inputSelector.value) return;
+    disableButton();
+    ballSelector.classList.add('shake__ball');
+
+    fetch(`${API_ENDPOINT}`)
+        .then((response)=> response.json())
+        .then(data =>showAnswer(data.answer));
 }
 
-const fetchAnswer =() =>{
-    fetch(API_ENDPOINT)
-    .then(response => response.json())
-    .then(data => console.log(data.answer));
+//to enter key
+const handleKeyEnter= e =>{
 
+    if(e.keyCode===13){
+        fetchAnswer();
+}
 };
-fetchAnswer();
+//click button
+buttonSelector.addEventListener('click',()=>{
+        fetchAnswer();
+});
+
