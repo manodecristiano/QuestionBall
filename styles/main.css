@@ -93,9 +93,11 @@ body {
 }
 
 .error {
+    
     position: absolute;
     color: white;
     margin: 0.3rem 0.8rem;
+    width: auto;
 }
 
 @media (max-width: 500px) {

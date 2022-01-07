@@ -11,8 +11,8 @@
     box-shadow: inset -10px 10px 50px rgba(0, 0, 0, 0.4), inset 5px -5px 50px rgba(0, 0, 0, 1),
         inset 50px -50px 200px rgba(0, 0, 0, 1), inset 0px -20px 20px rgba(60, 0, 60, 1),
         inset -1px 2px 20px 4px #ffffff7a, 0 0 50px #ffffffa1, 0 0 30px 0px #3900bf8c;
-    animation-name: rotating2;
-    animation-duration: 600s;
+    animation-name: rotatingBall;
+    animation-duration: 360s;
     animation-timing-function: ease;
     animation-iteration-count: infinite;
 }
@@ -31,7 +31,7 @@
         inset -1px 2px 20px 4px #ffffff7a, 0 0 50px #ffffffa1, 0 0 30px 0px #3900bf8c;
     */
     animation-name: rotating;
-    animation-duration: 30s;
+    animation-duration:15s;
     animation-timing-function: ease;
     animation-iteration-count: infinite;
     
@@ -39,26 +39,25 @@
 }
 
 @keyframes rotating{
-    0%{ top: 0%;left:50%;transform: rotate(-100deg);}
-    25%{ top: 30%;left:100%;transform: rotate(180deg);}
-    35%{ top: 45%;left:-25%;transform: rotate(260deg);}
-    50%{ top: 100%;left:10%;transform: rotate(380deg);}
-    75%{ top: 30%;left:-20%;transform: rotate(180deg);}
-    100%{ top: 0%;left:50%;transform: rotate(600deg);}
+    0%{ top: 0%;left:0%;transform: rotate(0deg);}
+    25%{ top: -10%;left:-6%;transform: rotate(10deg);}
+    35%{ top: 25%;left:-25%;transform: rotate(30deg);}
+    50%{ top: 10%;left:80%;transform: rotate(80deg);}
+    75%{ top: -15%;left:60%;transform: rotate(180deg);}
+    100%{ top: 0%;left:0%;transform: rotate(0deg);}
 }
-@keyframes rotating2{
-    0%{ transform: rotate(15deg);}
-    25%{ transform: rotate(-360deg);}
-    50%{ transform: rotate(-180deg);}
-    100%{ transform: rotate(60deg);}
+@keyframes rotatingBall{
+    0%{ transform: rotate(0deg);}
+    25%{ transform: rotate(360deg);}
+    35%{ transform: rotate(-360deg);}
+    50%{transform: rotate(360deg);}
+    75%{ transform: rotate(45deg);}
+    100%{ transform: rotate(0deg);}
 }
-@keyframes rotating-reverse{
-    0%{ top: 10%;left:15%;transform: rotate(-100deg);}
-    25%{ top: 30%;left:25%;transform: rotate(80deg);}
-    35%{ top: 40%;left:45%;transform: rotate(20deg);}
-    50%{ top: 30%;left:50%;transform: rotate(80deg);}
-    75%{ top: 20%;left:40%;transform: rotate(10deg);}
-    100%{ top: 10%;left:15%;transform: rotate(60deg);}
+@keyframes rotatingLetters{
+    0%{ transform: rotate(0deg);}
+    50%{ transform: rotate(-360deg);}
+    100%{transform: rotate(360deg);}
 }
 
 
@@ -77,7 +76,7 @@
         inset -1px 2px 20px 4px #fdfdfd7a, 0 0 50px #ffffffa1, 0 0 30px 0px #7900bf8c;
 }
 #answer_letters{
-    
+    left: 25%;
     text-align: center;
     font-size: 1.6rem;
     text-shadow: 1px 1px 2px rgb(173, 109, 199);
@@ -86,8 +85,8 @@
     color: rgb(250, 246, 250);
     position: absolute;
     text-transform: uppercase;
-    animation-name: rotating-reverse;
-    animation-duration: 10s;
+    animation-name: rotatingLetters;
+    animation-duration: 5s;
     animation-timing-function: ease;
     animation-iteration-count: infinite;
 }
